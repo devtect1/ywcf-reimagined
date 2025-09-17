@@ -69,7 +69,7 @@ export default function CultureNavbar() {
           {/* Logo */}
           <a href="/culture-center" className="flex items-center">
             <img 
-              src="/logo-culture.png" 
+              src="/logo-culture-v2.png" 
               alt="영월 도시문화센터" 
               className="h-12 w-auto"
             />
