@@ -9,7 +9,11 @@ export default function CultureFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* About Section */}
           <div>
-            <h3 className="text-lg font-bold text-culture-primary mb-4">영월 도시문화센터</h3>
+            <img 
+              src="/logo-dark.svg" 
+              alt="영월 도시문화센터" 
+              className="h-10 w-auto mb-4"
+            />
             <p className="text-sm text-muted-foreground mb-4">
               문화로 행복한 도시, 시민이 주도하는 문화도시 영월을 만들어갑니다.
             </p>

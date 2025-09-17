@@ -68,10 +68,11 @@ export default function CultureNavbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/culture-center" className="flex items-center">
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold text-culture-primary">영월 도시문화센터</span>
-              <span className="text-xs text-muted-foreground">Yeongwol Culture City Center</span>
-            </div>
+            <img 
+              src="/logo-dark.svg" 
+              alt="영월 도시문화센터" 
+              className="h-12 w-auto"
+            />
           </a>
 
           {/* Desktop Menu */}
