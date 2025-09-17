@@ -98,7 +98,7 @@ export default function HeroSection() {
                   variant="outline"
                   className="border-white text-white hover:bg-white/10 font-semibold px-8"
                 >
-                  예매하기
+                  대관하기
                 </Button>
               </div>
             </div>

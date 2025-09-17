@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -14,42 +14,36 @@ import { cn } from '@/lib/utils';
 
 const menuItems = [
   {
-    title: '재단소개',
+    title: '문화도시 영월 소개',
     items: [
-      { name: '인사말', href: '#' },
-      { name: '미션과 비전', href: '#' },
-      { name: '조직도', href: '#' },
-      { name: '오시는 길', href: '#' },
+      { name: '문화도시센터 소개', href: '#' },
     ],
   },
   {
-    title: '사업안내',
+    title: '사업소개',
     items: [
-      { name: '공연사업', href: '#' },
-      { name: '전시사업', href: '#' },
-      { name: '교육사업', href: '#' },
-      { name: '축제사업', href: '#' },
+      { name: '도시문화연구/개발', href: '#' },
+      { name: '문화도시거버넌스', href: '#' },
+      { name: '아카이브 영월', href: '#' },
+      { name: '도시자산브랜딩', href: '#' },
+      { name: '문화광부학교', href: '#' },
+      { name: '지역생활실험실', href: '#' },
+      { name: '문화광산영월', href: '#' },
+      { name: '구석구석문화영월', href: '#' },
+      { name: '편안히 넘나드는 영월', href: '#' },
     ],
   },
   {
-    title: '시설안내',
+    title: '모아달(月):문화도시',
     items: [
-      { name: '영월아트센터', href: '#' },
-      { name: '대관안내', href: '#' },
-      { name: '좌석배치도', href: '#' },
-    ],
-  },
-  {
-    title: '참여마당',
-    items: [
-      { name: '공지사항', href: '#' },
-      { name: '채용정보', href: '#' },
-      { name: '자료실', href: '#' },
+      { name: '25년 문화도시', href: '#' },
+      { name: '24년 문화도시', href: '#' },
+      { name: '23년 문화도시', href: '#' },
     ],
   },
 ];
 
-export default function Navbar() {
+export default function CultureNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -67,18 +61,17 @@ export default function Navbar() {
         'fixed top-0 w-full z-50 transition-all duration-300',
         isScrolled
           ? 'bg-background/95 backdrop-blur-lg shadow-lg'
-          : 'bg-transparent'
+          : 'bg-culture-primary/10 backdrop-blur-sm'
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center">
-            <img
-              src={isScrolled ? '/logo-dark.svg' : '/logo-light.svg'}
-              alt="영월문화관광재단"
-              className="h-12 w-auto"
-            />
+          <a href="/culture-center" className="flex items-center">
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-culture-primary">영월 도시문화센터</span>
+              <span className="text-xs text-muted-foreground">Yeongwol Culture City Center</span>
+            </div>
           </a>
 
           {/* Desktop Menu */}
@@ -89,20 +82,20 @@ export default function Navbar() {
                   <NavigationMenuItem key={menu.title}>
                     <NavigationMenuTrigger
                       className={cn(
-                        'bg-transparent font-medium text-base',
-                        !isScrolled && 'text-white hover:text-white/80 data-[state=open]:text-white'
+                        'bg-transparent font-medium text-base text-culture-foreground',
+                        'hover:text-culture-primary'
                       )}
                     >
                       {menu.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[200px] gap-1 p-4">
+                      <ul className="grid w-[300px] gap-1 p-4">
                         {menu.items.map((item) => (
                           <li key={item.name}>
                             <NavigationMenuLink asChild>
                               <a
                                 href={item.href}
-                                className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-culture-light hover:text-culture-primary focus:bg-culture-light focus:text-culture-primary"
                               >
                                 {item.name}
                               </a>
@@ -117,11 +110,12 @@ export default function Navbar() {
             </NavigationMenu>
 
             <Button
-              variant="default"
-              className="bg-gradient-primary hover:opacity-90 transition-opacity"
-              onClick={() => window.location.href = '/culture-center'}
+              variant="outline"
+              className="border-culture-primary text-culture-primary hover:bg-culture-primary hover:text-white"
+              onClick={() => window.location.href = '/'}
             >
-              도시문화센터
+              <Home className="mr-2 h-4 w-4" />
+              영월문화관광재단
             </Button>
           </div>
 
@@ -131,10 +125,7 @@ export default function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={cn(
-                  'relative',
-                  !isScrolled && 'text-white hover:text-white/80'
-                )}
+                className="text-culture-primary"
               >
                 <Menu className="h-6 w-6" />
               </Button>
@@ -143,7 +134,7 @@ export default function Navbar() {
               <div className="flex flex-col gap-6 mt-8">
                 {menuItems.map((menu) => (
                   <div key={menu.title}>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">
+                    <h3 className="font-semibold text-lg mb-3 text-culture-primary">
                       {menu.title}
                     </h3>
                     <ul className="space-y-2 ml-4">
@@ -151,7 +142,7 @@ export default function Navbar() {
                         <li key={item.name}>
                           <a
                             href={item.href}
-                            className="text-muted-foreground hover:text-primary transition-colors"
+                            className="text-muted-foreground hover:text-culture-primary transition-colors"
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {item.name}
@@ -162,11 +153,12 @@ export default function Navbar() {
                   </div>
                 ))}
                 <Button
-                  variant="default"
-                  className="w-full bg-gradient-primary hover:opacity-90 transition-opacity mt-4"
-                  onClick={() => window.location.href = '/culture-center'}
+                  variant="outline"
+                  className="w-full border-culture-primary text-culture-primary hover:bg-culture-primary hover:text-white mt-4"
+                  onClick={() => window.location.href = '/'}
                 >
-                  도시문화센터
+                  <Home className="mr-2 h-4 w-4" />
+                  영월문화관광재단
                 </Button>
               </div>
             </SheetContent>

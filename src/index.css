@@ -68,6 +68,12 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Culture Center Theme Colors */
+    --culture-primary: 205 100% 40%;
+    --culture-accent: 280 70% 50%;
+    --culture-light: 205 50% 95%;
+    --culture-foreground: 205 20% 20%;
   }
 
   .dark {
